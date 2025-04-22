@@ -1,0 +1,87 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#1a365d',
+          600: '#0f2b53',
+          700: '#0a2046',
+          800: '#061630',
+          900: '#040d20',
+          950: '#020711',
+        },
+        secondary: {
+          50: '#ecfeff',
+          100: '#cffafe',
+          200: '#a5f3fc',
+          300: '#67e8f9',
+          400: '#22d3ee',
+          500: '#0d9488',
+          600: '#0891b2',
+          700: '#0e7490',
+          800: '#155e75',
+          900: '#164e63',
+          950: '#083344',
+        },
+        accent: {
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+          950: '#431407',
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 1s ease-in-out forwards',
+        fadeInUp: 'fadeInUp 1s ease-in-out forwards',
+        blob: 'blob 7s infinite',
+        scrollDown: 'scrollDown 2.5s infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        blob: {
+          '0%': { transform: 'scale(1)' },
+          '33%': { transform: 'scale(1.1)' },
+          '66%': { transform: 'scale(0.9)' },
+          '100%': { transform: 'scale(1)' },
+        },
+        scrollDown: {
+          '0%': { transform: 'translateY(-100%)' },
+          '50%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
+      },
+      transitionDelay: {
+        '0': '0ms',
+        '300': '300ms',
+        '600': '600ms',
+        '900': '900ms',
+        '1000': '1000ms',
+        '2000': '2000ms',
+        '4000': '4000ms',
+        '6000': '6000ms',
+      },
+    },
+  },
+  plugins: [],
+};
