@@ -66,13 +66,13 @@ const ContactSection: React.FC = () => {
       icon: Mail,
       title: "Email Us",
       content: "panam@panamwibisono.com",
-      link: "mailto:panam@panamwibisono.com",
+      link: "mailto:panam@panamwibisono.com", // sudah benar
     },
     {
       icon: Phone,
-      title: "Call Us",
+      title: "WhatsApp Us",
       content: "+62812 9776 4498",
-      link: "#",
+      link: "https://wa.me/6281297764498", // ubah ini agar langsung buka WhatsApp
     },
     {
       icon: MapPin,
@@ -358,7 +358,6 @@ const ContactSection: React.FC = () => {
             </form>
           </div>
 
-          {/* Map */}
           {/* Map */}
           <div className="lg:col-span-2">
             <div className="h-full overflow-hidden rounded-xl shadow-md">
