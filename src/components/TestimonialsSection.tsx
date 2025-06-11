@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Testimonial {
   id: number;
@@ -7,54 +7,64 @@ interface Testimonial {
   position: string;
   company: string;
   image: string;
-  quote: string;
-  rating: number;
 }
 
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    position: "CEO",
-    company: "TechStart Inc.",
+    name: "Mr. Yafet M.S",
+    position: "JAKARTA",
+    company: "PT. Stratsol Global Solusi",
     image:
-      "https://images.pexels.com/photos/773371/pexels-photo-773371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    quote:
-      "Working with Innovate transformed our online presence completely. Their team understood our vision and delivered beyond our expectations.",
-    rating: 5,
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    position: "Marketing Director",
-    company: "GrowthFusion",
+    name: "Mr. M. Kurnia",
+    position: "JAKARTA",
+    company: "PT. Profesien Cipta Solusi",
     image:
-      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    quote:
-      "The team's ability to blend creative design with strategic thinking helped us increase our conversion rates by 45%. Truly exceptional work!",
-    rating: 5,
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    position: "Product Manager",
-    company: "Nexus Labs",
+    name: "Mr. Andri",
+    position: "JAKARTA",
+    company: "PT. Sinergi Sistem Solusindo",
     image:
-      "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    quote:
-      "From concept to launch, Innovate provided invaluable expertise and support. Our app launch was a massive success thanks to their guidance.",
-    rating: 4,
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
   },
   {
     id: 4,
-    name: "David Wilson",
-    position: "Founder",
-    company: "Wilson & Co.",
+    name: "Mr. Anwar",
+    position: "JAKARTA",
+    company: "PT. Anwar Karsa Persada",
     image:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    quote:
-      "Their attention to detail and commitment to quality is unmatched. The rebrand they created for us has been instrumental in our growth.",
-    rating: 5,
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+  },
+  {
+    id: 5,
+    name: "Mr. Hidayat",
+    position: "JAKARTA",
+    company: "PT. Semut Merah Teknologi",
+    image:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+  },
+  {
+    id: 6,
+    name: "Mr. Trias",
+    position: "JAKARTA",
+    company: "PT. Kaypuna Aditama Prakasa",
+    image:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+  },
+  {
+    id: 7,
+    name: "Mr. Susanto",
+    position: "JAKARTA",
+    company: "PT. Fortem Digital Asia",
+    image:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
   },
 ];
 
@@ -86,7 +96,6 @@ const TestimonialsSection: React.FC = () => {
     };
   }, []);
 
-  // Auto-rotate testimonials
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -110,16 +119,10 @@ const TestimonialsSection: React.FC = () => {
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStart === null) return;
-
     const touchEnd = e.changedTouches[0].clientX;
     const diff = touchStart - touchEnd;
-
-    if (diff > 50) {
-      nextSlide();
-    } else if (diff < -50) {
-      prevSlide();
-    }
-
+    if (diff > 50) nextSlide();
+    else if (diff < -50) prevSlide();
     setTouchStart(null);
   };
 
@@ -134,16 +137,11 @@ const TestimonialsSection: React.FC = () => {
       >
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold text-accent-400 mb-2 tracking-widest">
-            TESTIMONIALS
+            OUR CLIENTS
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            What Our Clients Say
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+            Clients yang pernah kita pegang
           </h3>
-          <p className="text-gray-300 text-lg">
-            Don't just take our word for it. Hear from our satisfied clients
-            about their experience working with our team and the results we've
-            delivered.
-          </p>
         </div>
 
         <div
@@ -151,7 +149,6 @@ const TestimonialsSection: React.FC = () => {
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Testimonial Slides */}
           <div
             ref={slideRef}
             className="transition-transform duration-500 ease-in-out"
@@ -160,62 +157,37 @@ const TestimonialsSection: React.FC = () => {
             <div className="flex">
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="w-full flex-shrink-0 p-4">
-                  <div className="bg-primary-800/50 p-8 md:p-10 rounded-2xl shadow-xl">
-                    <div className="flex flex-col md:flex-row md:items-center mb-6">
-                      <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
-                        <img
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          className="w-16 h-16 rounded-full object-cover border-2 border-accent-500"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-bold">
-                          {testimonial.name}
-                        </h4>
-                        <p className="text-gray-300">
-                          {testimonial.position}, {testimonial.company}
-                        </p>
-                        <div className="flex mt-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star
-                              key={i}
-                              className={`h-4 w-4 ${
-                                i < testimonial.rating
-                                  ? "text-yellow-400 fill-yellow-400"
-                                  : "text-gray-400"
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <blockquote className="text-lg md:text-xl italic text-gray-200 mb-4">
-                      "{testimonial.quote}"
-                    </blockquote>
+                  <div className="bg-primary-800/50 p-8 md:p-10 rounded-2xl shadow-xl text-center">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-16 h-16 mx-auto mb-4 rounded-full object-cover border-2 border-accent-500"
+                    />
+                    <h4 className="text-xl font-bold">{testimonial.name}</h4>
+                    <p className="text-gray-300">
+                      {testimonial.position}, {testimonial.company}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute top-1/2 left-0 -translate-y-1/2 bg-primary-600 hover:bg-primary-700 p-2 rounded-full shadow-md z-10 focus:outline-none md:-left-0"
+            className="absolute top-1/2 left-0 -translate-y-1/2 bg-primary-600 hover:bg-primary-700 p-2 rounded-full shadow-md z-10 focus:outline-none"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute top-1/2 right-0 -translate-y-1/2 bg-primary-600 hover:bg-primary-700 p-2 rounded-full shadow-md z-10 focus:outline-none md:-right-0"
+            className="absolute top-1/2 right-0 -translate-y-1/2 bg-primary-600 hover:bg-primary-700 p-2 rounded-full shadow-md z-10 focus:outline-none"
             aria-label="Next testimonial"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
 
-          {/* Dots indicator */}
           <div className="flex justify-center mt-8">
             {testimonials.map((_, index) => (
               <button
